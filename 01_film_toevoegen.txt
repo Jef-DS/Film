@@ -1,0 +1,4 @@
+1) film klasse maken met unieke id, titel, regisseur en jaartal
+2) Een arraylist maken met alle films
+3) Methode maken om een film in te lezen en toe te voegen aan de arraylist
+geschat: 20 minuten (start 13:45) => 21 minuten

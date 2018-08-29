@@ -1,0 +1,3 @@
+Een klasse filmbeheerder maken waar alle functionaliteit
+van de huidige applicatie in zit
+duurtijd: 20 minuten
