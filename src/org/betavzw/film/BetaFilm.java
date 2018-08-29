@@ -11,7 +11,13 @@ public class BetaFilm implements Comparable<BetaFilm> {
     public BetaFilm(int id) {
         this.id = id;
     }
-
+    public BetaFilm(String regel){
+        String[] elementen = regel.split(";");
+        id = Integer.parseInt(elementen[0]);
+        titel = elementen[1];
+        regisseur = elementen[2];
+        jaartal = Integer.parseInt(elementen[3]);
+    }
     public BetaFilm(int id, String titel, String regisseur, int jaartal) {
         this.id = id;
         this.titel = titel;

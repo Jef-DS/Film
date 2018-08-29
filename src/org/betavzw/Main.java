@@ -14,23 +14,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static final String BESTANDSNAAM="films.txt";
+    private static final String BESTANDSNAAM = "films.txt";
     private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Path pad = Paths.get(BESTANDSNAAM);
-        System.out.println(pad.toString());
-        List<BetaFilm> films;
-        if (Files.exists(pad)){
-            ArrayListLezer lezer = new ArrayListLezer(BESTANDSNAAM);
-            films = lezer.lezen();
-        }else {
-	        films=new ArrayList<>();
-        }
-        Filmbeheerder beheerder = new Filmbeheerder(films, scanner);
-        ArrayListSchrijver schrijver = new ArrayListSchrijver(BESTANDSNAAM);
-        try{
+        try {
+            Path pad = Paths.get(BESTANDSNAAM);
+            List<BetaFilm> films;
+            if (Files.exists(pad)) {
+                ArrayListLezer lezer = new ArrayListLezer(BESTANDSNAAM);
+                films = lezer.lezen();
+            } else {
+                films = new ArrayList<>();
+            }
+            Filmbeheerder beheerder = new Filmbeheerder(films, scanner);
+            ArrayListSchrijver schrijver = new ArrayListSchrijver(BESTANDSNAAM);
+
             schrijver.schrijven(films);
-        }catch(IOException ex){
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
