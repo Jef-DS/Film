@@ -65,4 +65,7 @@ public class BetaFilm implements Comparable<BetaFilm> {
         if (o == null) return +1;
         return this.titel.compareTo(o.titel);
     }
+    public String naarCSV(){
+        return String.format("%s;%s;%s;%s", getId(), getTitel(), getRegisseur(), getJaartal());
+    }
 }
