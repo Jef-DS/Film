@@ -1,0 +1,13 @@
+- menu tonen op het scherm:
+  1. Film toevoegen
+  2. Lijst tonen
+  3. Film zoeken
+  0. Stoppen
+Film toevoegen: een film met titel, jaartal en regisseur toevoegen
+Lijst tonen: alle filmtitels tonen met de mogelijkheid om
+de details van 1 van de films te tonen
+Film zoeken: een film zoeken op basis van
+  1. een deel van de titel
+  2. een deel van de naam van de regisseur
+  3. een jaartal
+
