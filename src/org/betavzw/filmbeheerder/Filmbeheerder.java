@@ -20,18 +20,12 @@ public class Filmbeheerder {
     public Filmbeheerder(List<BetaFilm> films, Scanner scanner) {
         this.films = films;
         this.scanner = scanner;
-        toonMenu();
     }
 
-    private void toonMenu() {
+    public void verwerkMenu() {
         int keuze;
         do {
-            for (int i = 0; i < menuItems.length - 1; i++) {
-                System.out.printf("%d. %s.%n", i + 1, menuItems[i]);
-            }
-            System.out.printf("%d. %s.%n", 0, menuItems[menuItems.length - 1]);
-            System.out.print("U keuze: ");
-            keuze = Integer.parseInt(scanner.nextLine());
+            keuze = toonMenu();
             switch (keuze) {
                 case 1:
                     filmToevoegen();
@@ -52,6 +46,16 @@ public class Filmbeheerder {
             }
         } while (keuze != 0);
 
+    }
+
+    private int toonMenu() {
+        int keuze;
+        for (int i = 0; i < menuItems.length - 1; i++) {
+            System.out.printf("%d. %s.%n", i + 1, menuItems[i]);
+        }
+        System.out.printf("%d. %s.%n", 0, menuItems[menuItems.length - 1]);
+        keuze=leesGetal("Uw keuze: ");
+        return keuze;
     }
 
     private void filmsExporteren(List<BetaFilm> films) {
@@ -109,8 +113,7 @@ public class Filmbeheerder {
         String titel = scanner.nextLine();
         System.out.print("Geef regisseur: ");
         String regisseur = scanner.nextLine();
-        System.out.print("Geef jaartal: ");
-        int jaartal = Integer.parseInt(scanner.nextLine());
+        int jaartal = leesGetal("Geef jaartal: ");
         BetaFilm film = new BetaFilm(films.size(), titel, regisseur, jaartal);
         films.add(film);
     }
@@ -143,6 +146,20 @@ public class Filmbeheerder {
         }
         filmsTonen(gevonden);
 
+    }
+    private int leesGetal(String prompt){
+        int getal=0;
+        boolean isInputOK=false;
+        do{
+            System.out.print(prompt);
+            try {
+                getal = Integer.parseInt(scanner.nextLine());
+                isInputOK=true;
+            }catch(NumberFormatException ex){
+                System.out.println("Dit is geen geldig getal. Opnieuw.");
+            }
+        }while(!isInputOK);
+        return getal;
     }
 
 }
