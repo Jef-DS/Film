@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Filmbeheerder {
     private static final String[] menuItems= {"Film toevoegen", "Lijst tonen", "Film zoeken", "Stoppen"};
-    private List<BetaFilm> films = new ArrayList<>();
+    private List<BetaFilm> films;
     private Scanner scanner;
 
     public Filmbeheerder(List<BetaFilm> films, Scanner scanner) {
@@ -28,7 +28,7 @@ public class Filmbeheerder {
             switch(keuze){
                 case 1: filmToevoegen();
                     break;
-                case 2: filmsTonen();
+                case 2: filmsTonen(films);
                     break;
                 case 3: filmZoeken();
                     break;
@@ -50,7 +50,7 @@ public class Filmbeheerder {
         BetaFilm film = new BetaFilm(films.size(),titel, regisseur,jaartal);
         films.add(film);
     }
-    private void filmsTonen(){
+    private void filmsTonen(List<BetaFilm> films){
         System.out.printf("%3s %25s %20s%10s%n","id", "titel", "regisseur", "jaartal");
         for(BetaFilm film: films){
             System.out.printf("%3d %25s %20s%10d%n", film.getId(), fittoLength(film.getTitel(), 25), fittoLength(film.getRegisseur(),20), film.getJaartal());
@@ -66,6 +66,15 @@ public class Filmbeheerder {
         }
     }
     private void filmZoeken(){
+        System.out.print("Geef een deel van de titel die je wil zoeken: ");
+        String zoektekst = scanner.nextLine();
+        List<BetaFilm> gevonden = new ArrayList<>();
+        for(BetaFilm film: films){
+            if (film.getTitel().contains(zoektekst)){
+                gevonden.add(film);
+            }
+        }
+        filmsTonen(gevonden);
 
     }
 
