@@ -1,0 +1,7 @@
+Zorg dat een lijst kan geëxporteerd worden naar HTML:
+0) voeg een menu-item toe om te exporteren (5 minuten)
+1) voorzie een reeks template bestanden (10 minuten)
+2) toon de lijst van template bestanden (5 minuten)
+3) laat de gebruiker kiezen uit de lijst (5 minuten)
+4) vraag de nieuwe HTML bestandsnaam (5 minuten)
+5) exporteer naar HTML (15 minuten)
