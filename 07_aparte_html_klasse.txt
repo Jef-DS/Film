@@ -1,0 +1,1 @@
+refactor naar een aparte HTML klasse om de tabel te maken.

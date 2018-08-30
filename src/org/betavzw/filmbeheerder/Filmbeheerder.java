@@ -1,6 +1,7 @@
 package org.betavzw.filmbeheerder;
 
 import org.betavzw.film.BetaFilm;
+import org.betavzw.html.HtmlTable;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -76,18 +77,15 @@ public class Filmbeheerder {
     }
 
     private String maakhtmlTabel(List<BetaFilm> films) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<table>");
-        sb.append("<tr><th>Titel</th><th>Regisseur</th><th>Jaartal</th></tr>");
+        HtmlTable tabel = new HtmlTable(new String[]{"Titel","Regisseur","Jaartal"});
         for(BetaFilm film: films){
-            sb.append("<tr>");
-            sb.append("<td>"+film.getTitel()+"</td>");
-            sb.append("<td>"+film.getRegisseur()+"</td>");
-            sb.append("<td>"+film.getJaartal()+"</td>");
-            sb.append("</tr>");
+            String[] elementen = new String[3];
+            elementen[0] = film.getTitel();
+            elementen[1] = film.getRegisseur();
+            elementen[2] = film.getJaartal()+"";
+            tabel.AddRow(elementen);
         }
-        sb.append("</table>");
-        return sb.toString();
+        return tabel.getHTML();
     }
 
     private Path vraagTemplateFile() throws IOException {
