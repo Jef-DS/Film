@@ -78,6 +78,7 @@ public class Filmbeheerder {
 
     private String maakhtmlTabel(List<BetaFilm> films) {
         HtmlTable tabel = new HtmlTable(new String[]{"Titel","Regisseur","Jaartal"});
+        tabel.setBodyRowClass("tabelrij");
         for(BetaFilm film: films){
             String[] elementen = new String[3];
             elementen[0] = film.getTitel();

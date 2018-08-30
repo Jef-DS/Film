@@ -1,0 +1,9 @@
+table{
+  border-collapse: collapse;
+}
+.tabelrij:nth-child(even){
+    background-color: #FFF;
+}
+.tabelrij:nth-child(odd) {
+    background-color: #CCC;
+}

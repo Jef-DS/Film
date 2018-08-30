@@ -46,8 +46,14 @@ public class HtmlTable {
     public String getHTML() {
         StringBuilder sb = new StringBuilder();
         sb.append("<table ");
+        if (tableClass!= null){
+            sb.append(String.format("class=\"%s\"",tableClass));
+        }
         sb.append(">\n");
         sb.append("<tr ");
+        if (headerRowClass!= null){
+            sb.append(String.format("class=\"%s\"",headerRowClass));
+        }
         sb.append(">\n");
         for(String titel: titels) {
             sb.append("<th>");
@@ -55,8 +61,12 @@ public class HtmlTable {
             sb.append("</th>");
         }
         sb.append("</tr>\n");
+        sb.append("<tbody>");
         for(String[] rij : rijen) {
             sb.append("<tr ");
+            if (bodyRowClass!= null){
+                sb.append(String.format("class=\"%s\"",bodyRowClass));
+            }
             sb.append(">");
             for(String el: rij){
                 sb.append("<td>");
@@ -65,6 +75,7 @@ public class HtmlTable {
             }
             sb.append("</tr>\n");
         }
+        sb.append("</tbody>");
         sb.append("</table>");
         return sb.toString();
     }
